@@ -7,6 +7,7 @@ function App() {
   const [generatedImage, setGeneratedImage] = useState(null);
   const [imageHistory, setImageHistory] = useState([]);
   const [error, setError] = useState('');
+  const [fullscreenImage, setFullscreenImage] = useState(null);
 
   const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8001';
 
