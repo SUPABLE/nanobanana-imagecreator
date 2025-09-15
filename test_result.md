@@ -210,11 +210,10 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Health check endpoint"
-    - "Image generation with Gemini Nano Banana"
     - "Image generation UI"
+    - "Display generated images"
   stuck_tasks: []
-  test_all: true
+  test_all: false
   test_priority: "high_first"
 
 agent_communication:
