@@ -174,7 +174,8 @@ function App() {
                 <img
                   src={generatedImage.image_url}
                   alt={generatedImage.prompt}
-                  className="w-full h-64 object-cover rounded-xl border border-white/20"
+                  className="w-full h-64 object-cover rounded-xl border border-white/20 cursor-pointer hover:opacity-90 transition-opacity duration-200"
+                  onClick={() => openFullscreen(generatedImage)}
                 />
                 <button
                   onClick={() => deleteImage(generatedImage.id)}
