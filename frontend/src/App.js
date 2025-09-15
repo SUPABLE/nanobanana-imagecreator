@@ -258,13 +258,16 @@ function App() {
             </button>
             
             {/* Image container */}
-            <div className="flex-1 flex items-center justify-center min-h-0 p-4">
+            <div className="flex-1 flex items-center justify-center min-h-0 p-6">
               <img
                 src={fullscreenImage.image_url}
                 alt={fullscreenImage.prompt}
                 className="max-w-full max-h-full w-auto h-auto object-contain rounded-lg shadow-2xl"
                 onClick={(e) => e.stopPropagation()}
-                style={{ maxWidth: 'calc(100vw - 2rem)', maxHeight: 'calc(100vh - 8rem)' }}
+                style={{ 
+                  maxWidth: 'calc(100vw - 3rem)', 
+                  maxHeight: 'calc(100vh - 10rem)' 
+                }}
               />
             </div>
             
