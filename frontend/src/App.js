@@ -239,6 +239,45 @@ function App() {
           </div>
         )}
       </div>
+
+      {/* Fullscreen Modal */}
+      {fullscreenImage && (
+        <div 
+          className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={closeFullscreen}
+          onKeyDown={handleFullscreenKeyPress}
+          tabIndex={0}
+        >
+          <div className="relative max-w-screen-lg max-h-screen-lg w-full h-full flex flex-col">
+            {/* Close button */}
+            <button
+              onClick={closeFullscreen}
+              className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white text-xl transition-colors duration-200"
+            >
+              ×
+            </button>
+            
+            {/* Image */}
+            <div className="flex-1 flex items-center justify-center">
+              <img
+                src={fullscreenImage.image_url}
+                alt={fullscreenImage.prompt}
+                className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+                onClick={(e) => e.stopPropagation()}
+              />
+            </div>
+            
+            {/* Image info */}
+            <div className="mt-4 bg-black/50 backdrop-blur-sm rounded-lg p-4 max-w-2xl mx-auto">
+              <h3 className="text-white font-semibold mb-2">Prompt:</h3>
+              <p className="text-blue-200 mb-2">{fullscreenImage.prompt}</p>
+              <p className="text-blue-300 text-sm">
+                Created: {new Date(fullscreenImage.created_at).toLocaleString()}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
