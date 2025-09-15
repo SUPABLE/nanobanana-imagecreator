@@ -208,7 +208,8 @@ function App() {
                     <img
                       src={image.image_url}
                       alt={image.prompt}
-                      className="w-full h-40 object-cover rounded-lg mb-3"
+                      className="w-full h-40 object-cover rounded-lg mb-3 cursor-pointer hover:opacity-90 transition-opacity duration-200"
+                      onClick={() => openFullscreen(image)}
                     />
                     <p className="text-blue-200 text-sm line-clamp-2 mb-2">
                       {image.prompt}
