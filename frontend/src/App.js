@@ -71,6 +71,20 @@ function App() {
     }
   };
 
+  const openFullscreen = (image) => {
+    setFullscreenImage(image);
+  };
+
+  const closeFullscreen = () => {
+    setFullscreenImage(null);
+  };
+
+  const handleFullscreenKeyPress = (e) => {
+    if (e.key === 'Escape') {
+      closeFullscreen();
+    }
+  };
+
   const deleteImage = async (imageId) => {
     try {
       const response = await fetch(`${backendUrl}/api/images/${imageId}`, {
