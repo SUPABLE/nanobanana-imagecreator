@@ -243,7 +243,7 @@ function App() {
       {/* Fullscreen Modal */}
       {fullscreenImage && (
         <div 
-          className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4 fullscreen-container"
           onClick={closeFullscreen}
           onKeyDown={handleFullscreenKeyPress}
           tabIndex={0}
@@ -258,17 +258,22 @@ function App() {
             </button>
             
             {/* Image container */}
-            <div className="flex-1 flex items-center justify-center min-h-0 p-6 overflow-hidden">
+            <div className="flex-1 flex items-center justify-center min-h-0 p-6 overflow-hidden relative">
               <img
                 src={fullscreenImage.image_url}
                 alt={fullscreenImage.prompt}
-                className="max-w-full max-h-full w-auto h-auto object-contain rounded-lg shadow-2xl cursor-zoom-in hover:scale-150 transition-transform duration-500 ease-in-out"
+                className="fullscreen-image max-w-full max-h-full w-auto h-auto object-contain rounded-lg shadow-2xl"
                 onClick={(e) => e.stopPropagation()}
                 style={{ 
                   maxWidth: 'calc(100vw - 3rem)', 
                   maxHeight: 'calc(100vh - 10rem)' 
                 }}
               />
+              
+              {/* Zoom indicator */}
+              <div className="zoom-indicator">
+                🔍 Hover to zoom • Click outside to close
+              </div>
             </div>
             
             {/* Image info */}
