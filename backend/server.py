@@ -147,13 +147,17 @@ async def get_generated_images(limit: int = 10):
         # Convert to response format
         result = []
         for img in images:
-            img = parse_from_mongo(img)
             data_url = f"data:image/png;base64,{img['image_data']}"
+            # Ensure created_at is a string
+            created_at_str = img['created_at']
+            if isinstance(created_at_str, datetime):
+                created_at_str = created_at_str.isoformat()
+            
             result.append(ImageGenerationResponse(
                 id=img['id'],
                 prompt=img['prompt'],
                 image_url=data_url,
-                created_at=img['created_at'],
+                created_at=created_at_str,
                 success=True
             ))
         
