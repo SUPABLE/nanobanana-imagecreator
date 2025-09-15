@@ -258,11 +258,11 @@ function App() {
             </button>
             
             {/* Image container */}
-            <div className="flex-1 flex items-center justify-center min-h-0 p-6">
+            <div className="flex-1 flex items-center justify-center min-h-0 p-6 overflow-hidden">
               <img
                 src={fullscreenImage.image_url}
                 alt={fullscreenImage.prompt}
-                className="max-w-full max-h-full w-auto h-auto object-contain rounded-lg shadow-2xl"
+                className="max-w-full max-h-full w-auto h-auto object-contain rounded-lg shadow-2xl cursor-zoom-in hover:scale-150 transition-transform duration-500 ease-in-out"
                 onClick={(e) => e.stopPropagation()}
                 style={{ 
                   maxWidth: 'calc(100vw - 3rem)', 
