@@ -248,7 +248,7 @@ function App() {
           onKeyDown={handleFullscreenKeyPress}
           tabIndex={0}
         >
-          <div className="relative max-w-screen-lg max-h-screen-lg w-full h-full flex flex-col">
+          <div className="relative w-full h-full max-w-7xl max-h-full flex flex-col">
             {/* Close button */}
             <button
               onClick={closeFullscreen}
@@ -257,18 +257,19 @@ function App() {
               ×
             </button>
             
-            {/* Image */}
-            <div className="flex-1 flex items-center justify-center">
+            {/* Image container */}
+            <div className="flex-1 flex items-center justify-center min-h-0 p-4">
               <img
                 src={fullscreenImage.image_url}
                 alt={fullscreenImage.prompt}
-                className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+                className="max-w-full max-h-full w-auto h-auto object-contain rounded-lg shadow-2xl"
                 onClick={(e) => e.stopPropagation()}
+                style={{ maxWidth: 'calc(100vw - 2rem)', maxHeight: 'calc(100vh - 8rem)' }}
               />
             </div>
             
             {/* Image info */}
-            <div className="mt-4 bg-black/50 backdrop-blur-sm rounded-lg p-4 max-w-2xl mx-auto">
+            <div className="bg-black/50 backdrop-blur-sm rounded-lg p-4 mx-4 mb-4 flex-shrink-0">
               <h3 className="text-white font-semibold mb-2">Prompt:</h3>
               <p className="text-blue-200 mb-2">{fullscreenImage.prompt}</p>
               <p className="text-blue-300 text-sm">
